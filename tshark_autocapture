@@ -1,0 +1,16 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:        tshark_autocapture
+# Required-Start:  
+# Required-Stop:   
+# Default-Start:   2 3 4 5
+# Default-Stop:    0 1 6
+# Short-Description: Begin tshark capture on startup
+### END INIT INFO
+
+# This version of tshark autocapture is setup to work with Kali Linux and
+# the development version of Wireshark, located in /usr/local/bin.  If you 
+# are not running that version, edit this script accordingly.
+
+/usr/local/bin/tshark -b duration:30 -b files:7200 -F pcap -i eth0 -n -Q -w /root/data/eth0.pcap &
